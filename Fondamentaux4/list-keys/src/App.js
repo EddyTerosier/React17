@@ -19,14 +19,17 @@ function App() {
 
   const array = [
     {
+      id:"uuid",
       lib: "React",
       link:"https://fr.reactjs.org"
     },
     {
+      id:"uuid",
       lib: "Angular",
       link: "https://angular.io"
     },
     {
+      id:"uuid",
       lib: "Vue",
       link: "https://vuejs.org"
     }
@@ -35,8 +38,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {array.map(item => {
-          return(<Library {...item}/>)
+        {array.map((item) => {
+          return<Library key={item.link} {...item}/>
         })}
       </header>
     </div>
