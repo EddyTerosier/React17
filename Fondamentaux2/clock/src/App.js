@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import {useState} from "react"
+import {useEffect, useState} from "react"
 import './App.css';
 
 function Clock(props) {
@@ -12,6 +12,11 @@ function Clock(props) {
 
 function App() {
   const [date,setDate] = useState(new Date());
+  useEffect(()=>{
+    setInterval(() => {
+      setDate(new Date())
+    }, 1000);
+  },[])
   return (
     <div className="App">
       <header className="App-header">
