@@ -1,12 +1,30 @@
-import logo from './logo.svg';
+import reactSVG from './logo.svg';
+import angularSVG from "./angular.svg";
 import './App.css';
 
-function Hello(props) {
+const lib = {
+  react : {
+    name:"React",
+    link:"https://reactjs.org",
+    logo: reactSVG
+  },
+  angular: {
+    name:"Angular",
+    link:"https://angular.io",
+    logo: angularSVG
+  }
+}
+
+function Component(props) {
   return (
     <>
+    <img src={props.logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
       <a
           className="App-link"
-          href="https://reactjs.org"
+          href={props.link}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -20,11 +38,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Hello name="Angular mon reuf"/>
+        <Component {...lib.react}/>
       </header>
     </div>
   );
