@@ -34,10 +34,20 @@ function App() {
       link: "https://vuejs.org"
     }
   ];
+  const [librairies, setLibrairies] = useState(array);
+  const [value, setValue] = useState(null);
+  const handleOnSubmit = e => {
+    e.preventDefault();
+    setLibrairies([...librairies, useEffect])
+  }
+  const handleOnChange = e => setValue(e.target.value);
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <form onSubmit={handleOnSubmit}>
+        <input type="texte" onChange={handleOnChange}/>
+        </form>
         {array.map((item) => {
           return<Library key={item.link} {...item}/>
         })}
