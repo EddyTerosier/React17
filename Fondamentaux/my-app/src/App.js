@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-function Hello() {
+function Hello(props) {
   return (
     <>
       <a
@@ -10,7 +10,7 @@ function Hello() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn {props.name}
         </a>
     </>
   )
@@ -24,7 +24,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <Hello/>
+        <Hello name="Angular mon reuf"/>
       </header>
     </div>
   );
