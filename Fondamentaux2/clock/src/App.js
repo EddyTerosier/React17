@@ -16,6 +16,9 @@ function App() {
     setInterval(() => {
       setDate(new Date())
     }, 1000);
+    return () => {
+      clearInterval()
+    };
   },[])
   return (
     <div className="App">
