@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import {useState} from "react"
 import './App.css';
 
 function Library({lib, link}) {
@@ -38,17 +39,23 @@ function App() {
   const [value, setValue] = useState(null);
   const handleOnSubmit = e => {
     e.preventDefault();
-    setLibrairies([...librairies, useEffect])
+    setLibrairies([...librairies, value])
   }
-  const handleOnChange = e => setValue(e.target.value);
+  const handleOnChange = e => {
+    setValue({...value,[e.target.name]: e.target.value})
+  };
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <form onSubmit={handleOnSubmit}>
-        <input type="texte" onChange={handleOnChange}/>
+        <input type="texte" name="lib" placeholder="technologie" onChange={handleOnChange}/>
+        &nbsp;
+        <input type="texte" name="link" placeholder="technologie partie 2" onChange={handleOnChange}/>
+        &nbsp;
+        <button type='submit'>Add</button>
         </form>
-        {array.map((item) => {
+        {librairies.map((item) => {
           return<Library key={item.link} {...item}/>
         })}
       </header>
