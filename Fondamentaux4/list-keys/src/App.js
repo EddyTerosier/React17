@@ -1,22 +1,43 @@
 import logo from './logo.svg';
 import './App.css';
 
+function Library({lib, link}) {
+  return (
+    <a
+          className="App-link"
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn {lib}
+        </a>
+  )
+}
+
+
 function App() {
+
+  const array = [
+    {
+      lib: "React",
+      link:"https://fr.reactjs.org"
+    },
+    {
+      lib: "Angular",
+      link: "https://angular.io"
+    },
+    {
+      lib: "Vue",
+      link: "https://vuejs.org"
+    }
+  ];
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {array.map(item => {
+          return(<Library {...item}/>)
+        })}
       </header>
     </div>
   );
